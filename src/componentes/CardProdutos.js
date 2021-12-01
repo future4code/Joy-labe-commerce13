@@ -1,6 +1,5 @@
 import React from 'react'
 import styled from "styled-components";
-import foguete from 'C:/Users/SHADOWFIRE/Desktop/Joy-labe-commerce13/labecommerce/src/img/foguete.jpg'
 
 const CardContainer = styled.div`
     display: flex;
