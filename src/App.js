@@ -3,6 +3,8 @@ import React from 'react'
 import CardProdutos from './componentes/CardProdutos'
 import styled from "styled-components";
 import Filtros from './componentes/Filtros/Filtros';
+import Carrinho from './componentes/Carrinho';
+
 const AppContainer = styled.div`
   display: grid;
   grid-template-columns: repeat(5, 1fr);
@@ -10,10 +12,8 @@ const AppContainer = styled.div`
   grid-column-gap: 0px;
   grid-row-gap: 0px;
 `;
-const Carrinho = styled.div`
-  display: grid;
-  grid-area: 3 / 4 / 5 / 6;
-`;
+
+
 class App extends React.Component {
   state = {
     produto: [
@@ -48,6 +48,7 @@ class App extends React.Component {
       image: "https://upload.wikimedia.org/wikipedia/commons/c/c6/Space_Shuttle_Discovery_on_its_way_to_Launch_Pad_39A_for_STS-133.jpg"
       }
     ]}
+
 render () {
 const novoProduto = this.state.produto.map((produto) => {
   return (
@@ -60,12 +61,15 @@ const novoProduto = this.state.produto.map((produto) => {
 })
 return (
   <AppContainer>
-    <Filtros />
+
+      <Filtros />
+
+      {novoProduto} 
+      
+      <Carrinho />
+
     {/* <p>Quantidade de produtos: 6</p> */}
-    {novoProduto}
-    <Carrinho>
-      Carrinho
-    </Carrinho>
+
   </AppContainer>
   )
   }
