@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+
 export const Container = styled.div`
   display: flex;
   border: 1px solid #ccc;
@@ -6,14 +7,15 @@ export const Container = styled.div`
   flex-direction: column;
   grid-area: 1 / 4 / 3 / 6;
 `;
-export const Form = styled.form`
+
+export const FiltersContainer = styled.div`
+  border: 1px solid black;
+  padding: 8px;
+`;
+
+export const InputContainer = styled.label`
   display: flex;
   flex-direction: column;
-  max-width: 30%;
-  gap: 0.2rem;
-`;
-export const Button = styled.button`
-  cursor: pointer;
-  padding: 0.2rem;
-  font-size: 0.8rem;
-`;
+  align-items: flex-start;
+  margin-bottom: 8px;
+`
