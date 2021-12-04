@@ -16,6 +16,9 @@ const AppContainer = styled.div`
 
 class App extends React.Component {
   state = {
+    minFilter: 0,
+    maxFilter: 800000,
+    nameFilter: '',
     produto: [
       {
       name: "Foguete Apollo",
@@ -49,6 +52,18 @@ class App extends React.Component {
       }
     ]}
 
+    onChangeMinFilter = (event) => {
+      this.setState({minFilter: event.target.value})
+    }
+  
+    onChangeMaxFilter = (event) => {
+      this.setState({maxFilter: event.target.value})
+    }
+  
+    onChangeNameFilter = (event) => {
+      this.setState({nameFilter: event.target.value})
+    }
+
 render () {
 const novoProduto = this.state.produto.map((produto) => {
   return (
@@ -62,7 +77,14 @@ const novoProduto = this.state.produto.map((produto) => {
 return (
   <AppContainer>
 
-      <Filtros />
+      <Filtros
+        minFilter={this.state.minFilter}
+        maxFilter={this.state.maxFilter}
+        nameFilter={this.state.nameFilter}
+        onChangeMinFilter={this.onChangeMinFilter}            
+        onChangeMaxFilter={this.onChangeMaxFilter}            
+        onChangeNameFilter={this.onChangeNameFilter} 
+      />
 
       {novoProduto} 
       
@@ -74,5 +96,67 @@ return (
   )
   }
 }
-export default App;
+export default App;  
+
+
+
+
+
+
+
+/*----------------------------------------------*/
+
+
+/*class App extends React.Component {
+  state = {
+    minFilter: 100,
+    maxFilter: 1000,
+    nameFilter: 'Produto',
+    productsInCart: [
+      {
+        id: 4,
+        name: 'Produto 4',
+        price: 10,
+        photo: 'https://picsum.photos/200/200?a=4',
+        quantity: 1
+      },
+      {
+        id: 3,
+        name: 'Produto 3',
+        price: 30,
+        photo: 'https://picsum.photos/200/200?a=3',
+        quantity: 2
+      }
+    ]
+  }
+
+  onChangeMinFilter = (event) => {
+    this.setState({minFilter: event.target.value})
+  }
+
+  onChangeMaxFilter = (event) => {
+    this.setState({maxFilter: event.target.value})
+  }
+
+  onChangeNameFilter = (event) => {
+    this.setState({nameFilter: event.target.value})
+  }
+
+  render() {
+    return (
+      <AppContainer>
+        <Filters
+          minFilter={this.state.minFilter}
+          maxFilter={this.state.maxFilter}
+          nameFilter={this.state.nameFilter}
+          onChangeMinFilter={this.onChangeMinFilter}            
+          onChangeMaxFilter={this.onChangeMaxFilter}            
+          onChangeNameFilter={this.onChangeNameFilter}                  
+        />
+        </AppContainer>
+    );
+  }
+}
+
+export default App; */
 
